@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>CoderGo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../common/animate.css">
+</head>
+
+<body>
+    <div class="header" id="header">
+        <div class="meun-btn" id="meunBtn">
+        </div>
+        <div class="title-wrapper">
+            <h1 class="title">
+                个人信息
+            </h1>
+        </div>
+    </div>
+    <div id="container" class="content">
+        <div class="my">
+            <div class="my-header">
+            </div>
+            <div class="my-info-wrap animated bounceInLeft">
+                <div class="avatar">
+                </div>
+                <div class="user-info">
+                    <p class="username">用户名</p>
+                </div>
+            </div>
+            <div class="main">
+                <ul class="info-list animated bounceInRight">
+                    <li>
+                        <a href="javascript:;">
+                            <div class="card">
+                                <div class="card-name">
+                                    <img src="img/jewelry.png" alt="" class="card-icon">
+                                    <span class="card-name">我的积分</span>
+                                </div>
+                                <div class="card-value">
+                                    <p id="points">1000分</p>
+                                    <img src="img/more.png" alt="" class="right-icon">
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="card">
+                                <div class="card-name">
+                                    <img src="img/shoes.png" alt="" class="card-icon">
+                                    <span class="card-name">我的步数</span>
+                                </div>
+                                <div class="card-value">
+                                    <p id="steps">1000</p>
+                                    <img src="img/more.png" alt="" class="right-icon">
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../ranklist/ranklist.html">
+                            <div class="card">
+                                <div class="card-name">
+                                    <img src="img/account.png" alt="" class="card-icon">
+                                    <span class="card-name">我的排名</span>
+                                </div>
+                                <div class="card-value">
+                                    <p id="rank">1000</p>
+                                    <img src="img/more.png" alt="" class="right-icon">
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="mask" id="mask"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="user-panel">
+            <div class="avatar-wrapper">
+                <div class="avatar"></div>
+            </div>
+            <div class="info">
+                <div class="name">
+                    <span id="userName"></span>
+                </div>
+                <div class="score">
+                    积分:<span id="userScore"></span>
+                </div>
+            </div>
+            <div class="logout" id="logout"></div>
+        </div>
+        <div class="meun-panel">
+            <a href="../../index.html" class="meun-item">
+                <span class="icon go">
+                 </span>
+                <span class="link">
+                     coder Go!
+                 </span>
+            </a>
+            <a href="../ranking/index.html" class="meun-item">
+                <span class="icon rank">
+                 </span>
+                <span class="link">
+                     世界战况
+                 </span>
+            </a>
+            <a class="meun-item active">
+                <span class="icon user">
+                 </span>
+                <span class="link">
+                     个人信息
+                 </span>
+            </a>
+            <a class="meun-item" id="nightMode">
+                <span class="icon night-mode">
+                 </span>
+                <span class="link">
+                     夜间模式
+                 </span>
+            </a>
+        </div>
+    </div>
+    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/js-cookie/latest/js.cookie.min.js"></script>
+    <script src="//cdn.bootcss.com/velocity/1.5.0/velocity.min.js "></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

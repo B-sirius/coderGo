@@ -1,0 +1,112 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    background: url("img/logback.jpg") no-repeat;
+    font-family: "Microsoft Yahei", "Helvetica Neue","Helvetica","Arial",sans-serif;
+    background-size: cover;
+}
+
+.mask {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+ :-moz-placeholder {
+    color: #fff;
+    opacity: 1;
+}
+
+ :-moz-placeholder {
+    color: #fff;
+    opacity: 1
+}
+
+ ::-moz-placeholder {
+    color: #fff;
+    opacity: 1
+}
+
+input:-ms-input-placeholder {
+    color: #fff;
+    opacity: 1
+}
+
+input::-webkit-input-placeholder {
+    color: #fff;
+    opacity: 1
+}
+
+header {
+    width: 100%;
+    overflow: hidden;
+}
+
+.logo {
+    margin: 7rem auto;
+    text-align: center;
+    color: #fff;
+}
+
+.login,
+.register {
+    padding: 0 2rem;
+}
+
+.input {
+    border-radius: 3px;
+    outline: none;
+    background: transparent;
+    border: 1px solid #fff;
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    transition: .3s;
+    color: #fff;
+}
+
+.input:focus {
+    border-color: lightslategray;
+}
+
+.login-btn {
+    border-radius: 3px;
+    width: 100%;
+    background: transparent;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border: 1px solid #fff;
+    color: #fff;
+    transition: .3s;
+}
+
+.login-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+.go-register {
+    margin: o auto;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.go-register a {
+    color: #fff;
+}
+
+.input-error {
+    color: #f00;
+    font-size: 1.3rem;
+}
+
+.hidden {
+    display: none;
+}

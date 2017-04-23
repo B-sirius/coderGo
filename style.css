@@ -1,0 +1,298 @@
+body {
+    margin: 0;
+    font-family: "Microsoft Yahei", "Helvetica Neue","Helvetica","Arial",sans-serif;
+    overflow: hidden;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 270px;
+    height: 100%;
+    background: #F7F7F7;
+    margin-left: -270px;
+}
+
+.sidebar.night {
+    background: #252525;
+}
+
+.sidebar .user-panel {
+    position: relative;
+    height: 150px;
+    background: #8F6AFF;
+    color: #fff;
+}
+
+.sidebar.night .user-panel {
+    background: #1E1E1E;
+    color: #707070;
+}
+
+.sidebar .user-panel .avatar-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    margin-left: 10px;
+    width: 64px;
+    height: 64px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.sidebar .user-panel .avatar-wrapper .avatar {
+    display: inline-block;
+    width: 84px;
+    height: 84px;
+    background: #612CFF;
+}
+
+.sidebar .user-panel .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 100px;
+    height: 100%;
+    font-size: 16px;
+}
+
+.sidebar .user-panel .info .name {
+    height: 30px;
+    line-height: 30px;
+}
+
+.sidebar .user-panel .logout {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background: url('img/logout.svg') center center no-repeat;
+}
+
+.sidebar .meun-panel .meun-item {
+    display: block;
+    text-decoration: none;
+    height: 60px;
+}
+
+.sidebar .meun-panel .meun-item.active {
+    background: #D2D2D2;
+}
+
+.sidebar.night .meun-panel .meun-item.active {
+    background: #393939;
+}
+
+.sidebar .meun-panel .meun-item .icon {
+    position: absolute;
+    display: inline-block;
+    height: 60px;
+    line-height: 60px;
+    width: 60px;
+}
+
+.sidebar .meun-panel .meun-item .icon.go {
+    background: url('img/run.svg') center center no-repeat;
+}
+
+.sidebar .meun-panel .meun-item .icon.rank {
+    background: url('img/fire.svg') center center no-repeat;
+}
+
+.sidebar .meun-panel .meun-item .icon.user {
+    background: url('img/user.svg') center center no-repeat;
+}
+
+.sidebar .meun-panel .meun-item .icon.night-mode {
+    background: url('img/switch_night.svg') center center no-repeat;
+}
+
+.sidebar .meun-panel .meun-item .link {
+    margin-left: 70px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 16px;
+    color: #2c2c2c;
+}
+
+.sidebar.night .meun-panel .meun-item .link {
+    color: #707070;
+}
+
+.mask {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+}
+
+.header {
+    position: relative;
+    height: 50px;
+    background: #6300DB;
+    color: #fff;
+}
+
+.header.night {
+    background: #252525;
+    color: #707070;
+}
+
+.header .meun-btn {
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    background: url('img/bar.svg') center center no-repeat;
+}
+
+.header.night .meun-btn {
+    background: url('img/bar-night.svg') center center no-repeat;
+}
+
+.header .title-wrapper {
+    height: 100%;
+    line-height: 50px;
+}
+
+.header .title-wrapper .title{
+    text-align: center;
+    margin: 0;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50px;
+    bottom: 0;
+}
+
+.content .map-container {
+    height: 100%;
+}
+
+.content .map-mask {
+    opacity: 0;
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.content .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 300px;
+    height: 200px;
+    border-radius: 3px;
+    overflow: hidden;
+    font-size: 0;
+}
+
+.content .overlay .panel {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #F1F1F1;
+}
+
+.content .overlay .panel.hidden {
+    display: none;
+}
+
+.content.night .overlay .panel {
+    background: #252525;
+}
+
+.content .overlay .s1 .text {
+    box-sizing: border-box;
+    height: 150px;
+    border-bottom: 1px solid #C6C6C6;
+    line-height: 150px;
+    text-align: center;
+    font-size: 20px;
+    color: #2D2D2D;
+}
+
+.content.night .overlay .s1 .text {
+    border-bottom: 1px solid #585858;
+    color: #707070;
+}
+
+.content .overlay .s1 .btn {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 50%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    text-align: center;
+    border-right: 1px solid #C6C6C6;
+}
+
+.content.night .overlay .s1 .btn {
+    border-right: 1px solid #585858;
+}
+
+.content .overlay .s1 .btn.confirm {
+    color: #3375FF;
+}
+
+.content .overlay .s1 .btn.cancel {
+    color: #F33A3A;
+}
+
+.content .overlay .s1 .btn:last-child {
+    border-right: none;
+}
+
+.content .overlay .s2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .overlay .s2 .loading {
+    width: 48px;
+    height: 48px;
+    animation: 1s circle infinite linear;
+}
+
+@keyframes circle {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.content .overlay .s3 {
+    line-height: 200px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.content.night .overlay .s3 {
+    color: #707070;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>logIn</title>
+    <link rel="stylesheet" href="../../common/reset.css">
+    <link rel="stylesheet" href="animate.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="mask"></div>
+    <header class="header">
+        <div class="logo">
+            <h1 class="logo-text animated bounceInDown">CoderGo!</h1>
+        </div>
+    </header>
+    <main class="main">
+        <div class="login animated fadeIn">
+            <p class="input-error animated bounceInLeft">提示信息</p>
+            <form>
+                <div class="input-wrap">
+                    <img src="" alt="" class="input-icon">
+                    <input type="text" class="input" placeholder="用户名" name="username">
+                </div>
+                
+                <div class="input-wrap">
+                    <img src="" alt="" class="input-icon">
+                    <input type="password"  class="input" placeholder="密码" name="password">
+                </div>
+                <button class="login-btn" id="login">登录</button>
+            </form>
+            <div class="go-register">
+                <a href="javascript:;" id="go-register">立即注册>></a>
+            </div>
+        </div>
+        <div class="register animated hidden">
+            <p class="input-error animated bounceInLeft">提示信息2</p>
+            <form>
+                <div class="input-wrap">
+                    <img src="" alt="" class="input-icon">
+                    <input type="text"  class="input" placeholder="用户名" name="username">
+                </div>
+                <div class="input-wrap">
+                    <img src="" alt="" class="input-icon">
+                    <input type="password"  class="input" placeholder="密码" name="password">
+                </div>
+                <button class="login-btn" id="register">注册</button>
+            </form>
+           <div class="go-register">
+                <a href="javascript:;" id="go-login">已有账号，立即登录</a>
+            </div>
+        </div>
+    </main>
+    <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>

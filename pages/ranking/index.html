@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>CoderGo</title>
+    <link rel="stylesheet" href="../../common/animate.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="header" id="header">
+        <div class="meun-btn" id="meunBtn">
+        </div>
+        <div class="title-wrapper">
+            <h1 class="title">
+                世界战况
+            </h1>
+        </div>
+    </div>
+    <div id="container" class="content">
+        <div class="rank-list">
+            <ul class="list">
+                <li>
+                    <div class="card" id="my-card">
+                        <div class="card-left">
+                            <p class="name"> user.username</p>
+                            <span class="my-rank"></span>
+                        </div>
+                        <p class="points"></p>
+                    </div>
+                </li>
+            </ul>
+            <div class="power">
+                <div class="chart-title">
+                    <h4>势力分布</h4>
+                </div>
+                <div id="power-show"></div>
+            </div>
+        </div>
+    </div>
+    <div class="mask" id="mask"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="user-panel">
+            <div class="avatar-wrapper">
+                <div class="avatar"></div>
+            </div>
+            <div class="info">
+                <div class="name">
+                    <span id="userName"></span>
+                </div>
+                <div class="score">
+                    积分:<span id="userScore"></span>
+                </div>
+            </div>
+            <div class="logout" id="logout"></div>
+        </div>
+        <div class="meun-panel">
+            <a href="../../index.html" class="meun-item">
+                <span class="icon go">
+                 </span>
+                <span class="link">
+                     coder Go!
+                 </span>
+            </a>
+            <a class="meun-item active">
+                <span class="icon rank">
+                 </span>
+                <span class="link">
+                     世界战况
+                 </span>
+            </a>
+            <a href="../user/index.html" class="meun-item">
+                <span class="icon user">
+                 </span>
+                <span class="link">
+                     个人信息
+                 </span>
+            </a>
+            <a class="meun-item" id="nightMode">
+                <span class="icon night-mode">
+                 </span>
+                <span class="link">
+                     夜间模式
+                 </span>
+            </a>
+        </div>
+    </div>
+    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/velocity/1.5.0/velocity.min.js"></script>
+    <script src="//cdn.bootcss.com/js-cookie/latest/js.cookie.min.js"></script>
+    <script src="http://cdn.bootcss.com/echarts/3.5.3/echarts.simple.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
