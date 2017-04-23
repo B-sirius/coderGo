@@ -88,10 +88,37 @@ let initMap = (function() {
 
     let dataList = [{
         id: 1,
-        pos: [118.718555, 32.204261]
+        pos: [118.718634,32.204161],
+        power: 1
     }, {
         id: 2,
-        pos: [118.71701, 32.20477]
+        pos: [118.717094,32.204824],
+        power: 2
+    } ,
+    {
+        id: 3,
+        pos: [118.718569,32.204615],
+        power: 3
+    } ,
+    {
+        id: 4,
+        pos: [118.713564,32.202818],
+        power: 1
+    } ,
+    {
+        id: 5,
+        pos: [118.716408,32.202732],
+        power: 2
+    } ,
+    {
+        id: 6,
+        pos: [118.718033,32.203426],
+        power: 3
+    } ,
+    {
+        id: 7,
+        pos: [118.716375,32.205469],
+        power: 2
     }];
 
     let markerList = [];
@@ -106,9 +133,24 @@ let initMap = (function() {
 
     for (let i = 0; i < dataList.length; i++) {
         let markerPos = dataList[i].pos;
+        let power = dataList[i].power;
+
+        let markIconHandler = {
+            '1': function() {
+                return 'img/marker1.svg'
+            },
+            '2': function() {
+                return 'img/marker2.svg'
+            },
+            '3': function() {
+                return 'img/marker3.svg'
+            }
+        };
 
         let mapMarker = new AMap.Marker({
+            icon: markIconHandler[power](),
             position: markerPos,
+            offset: new AMap.Pixel(-11,-26),
             map: map
         });
 
