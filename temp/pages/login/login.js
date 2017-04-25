@@ -47,14 +47,13 @@ function login(){//登录
             
             console.log(data);
             if(data.success){//登录成功
-                data = data.data;
                 setTimeout(function(){
                     $(".login .input-error").text("登录成功")
                 },2000)
                 // 跳转到一个页面
                 // 保存到cookie
                 
-                Cookies.set('userId', data.id);
+                document.cookie="userId="+data.data.id;
                 window.open('../../index.html','_self');
             }else{//登录失败
                 $(".login .input-error").text(data.msg)
@@ -84,8 +83,7 @@ function register(){//注册
         timeout:5000,
         dataType:'json',
         success:function(data,textStatus,jqXHR){//登录成功，页面跳转
-            console.log(data);
-
+            
             if(data.success){//注册成功
                 setTimeout(function(){
                     $(".register .input-error").text("注册成功")

@@ -1,30 +1,9 @@
 'use strict';
-'use strict';
-const api = 'http://192.168.5.159:8080/CoderGo/UserInfoObtain';
-
-let user;
-
-$.ajax({
-    url: api,
-    type: 'POST',
-    crossDomain: true,
-    data: {
-        id: Cookies.get('userId')
-    },
-    timeout: 5000,
-    success: function(response) {
-        response = JSON.parse(response);
-        if (response.success) {
-            let data = response.data
-            user = data;
-            initPage();
-            initRankList();
-        }
-    },
-    error: function(xhr, textStatus) {
-        console.log(textStatus);
-    }
-});
+const user = {
+    name: "比利海灵顿",
+    score: 233,
+    id: 1
+}
 
 let initPage = (function() {
     // 渲染侧边栏动画
@@ -83,13 +62,12 @@ let initPage = (function() {
     });
 
     //=============填充数据================
-    return function() {
-        let $userName = $('#userName'),
-            $score = $('#userScore');
+    let $userName = $('#userName'),
+        $score = $('#userScore');
 
-        $userName.text(user.name);
-        $score.text(user.score);
-    }
+    $userName.text(user.name);
+    $score.text(user.score);
+
 })();
 
 //===============夜间模式======================
@@ -153,17 +131,39 @@ let initRankList = (function() {
     }, {
         username: 'name1',
         points: '123'
-    }];
+    }]
 
-    return function pageInit() {
+    function getCookie(name) {
+        var arr = document.cookie.split(';');
+        for (var i = 0; i < arr.length; i++) {
+            var arr2 = arr[i].split('=');
+            if (arr2[0] == name) {
+                return arr2[1]; //找到所需要的信息返回出来
+            }
+        }
+        return ''; //找不到就返回空字符串
+    }
+
+    function pageInit() {
         let api_getusers = ''; //获取用户
         let api_getpowers = ''; //获取势力
         let api_getuser = ''; //获取当前用户
         let myChart = echarts.init(document.getElementById('power-show'));
+        let userId = getCookie('userId'); //从cookie获取用户id
 
-        $("#my-card").find(".name").text(user.user_name);
-        $("#my-card").find(".points").text(user.integration);
-        $("#my-card").find(".my-rank").text(20 + '名');
+
+        $.get(api_getuser, { id: userId }).done(function(res) {
+            var getData=$.parseJSON(res);
+            console.log(getData);
+            res = {
+                username: '我水水',
+                points: 1923,
+                rank: 15
+            }
+            $("#my-card").find(".name").text(res.username);
+            $("#my-card").find(".points").text(res.points);
+            $("#my-card").find(".my-rank").text(res.rank + '名');
+        })
         $.get(api_getusers).done(function(res) {
             // 获取前十名的数据
             // console.log(res);
@@ -205,6 +205,7 @@ let initRankList = (function() {
                                 value: 3101,
                                 name: '混乱邪恶'
                             },
+
                         ]
                     }]
                 }
@@ -212,5 +213,9 @@ let initRankList = (function() {
             myChart.hideLoading();
             myChart.setOption(option);
         });
+    }
+
+    window.onload = function() {
+        pageInit();
     }
 })();

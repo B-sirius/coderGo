@@ -1,29 +1,9 @@
 'use strict';
-const api = 'http://192.168.5.159:8080/CoderGo/UserInfoObtain';
-
-let user;
-
-$.ajax({
-    url: api,
-    type: 'POST',
-    crossDomain: true,
-    data: {
-        id: Cookies.get('userId')
-    },
-    timeout: 5000,
-    success: function(response) {
-        response = JSON.parse(response);
-        if (response.success) {
-            let data = response.data;
-            user = data;
-            initPage();
-            initContent();
-        }
-    },
-    error: function(xhr, textStatus) {
-        console.log(textStatus);
-    }
-});
+const user = {
+    name: "比利海灵顿",
+    score: 233,
+    id: 1
+}
 
 let initPage = (function() {
     // 渲染侧边栏动画
@@ -82,13 +62,12 @@ let initPage = (function() {
     });
 
     //=============填充数据================
-    return function() {
-        let $userName = $('#userName'),
-            $score = $('#userScore');
+    let $userName = $('#userName'),
+        $score = $('#userScore');
 
-        $userName.text(user.user_name);
-        $score.text(user.integration);
-    }
+    $userName.text(user.name);
+    $score.text(user.score);
+
 })();
 
 //===============夜间模式======================
@@ -134,10 +113,43 @@ let initStyle = (function() {
 })();
 
 let initContent = (function() {
-    return function() {
-        $(".user-info .username").text(user.user_name);
-        $("#points").text(user.integration);
-        $("#steps").text(1251);
-        $("#rank").text(20);
+    function getCookie(name) {
+        var arr = document.cookie.split(';');
+        for (var i = 0; i < arr.length; i++) {
+            var arr2 = arr[i].split('=');
+            if (arr2[0] == name) {
+                return arr2[1]; //找到所需要的信息返回出来
+            }
+        }
+        return ''; //找不到就返回空字符串
+    }
+
+
+    function getInfo() { //获取用户信息
+        var api = '';
+        var userId = getCookie("userId");
+        var getData = {
+            id: userId
+        }
+        var userData = {
+                username: 'username',
+                points: '100',
+                steps: '23112',
+                rank: '22'
+            }
+            $.get(api,getData,function(res){
+                userData.username=res.user_name;
+                userData.points=res.integration;
+                // userData.steps=res.steps;
+                userData.rank=res.rank;
+            },'json')
+        return userData;
+    }
+    window.onload = function() {
+        var userData = getInfo();
+        $(".user-info .username").text(userData.username);
+        $("#points").text(userData.points);
+        $("#steps").text(userData.steps);
+        $("#rank").text(userData.rank);
     }
 })();

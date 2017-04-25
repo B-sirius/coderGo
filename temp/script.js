@@ -1,28 +1,9 @@
 'use strict';
-const userApi = 'http://192.168.5.159:8080/CoderGo/UserInfoObtain';
-
-let user;
-
-$.ajax({
-    url: userApi,
-    type: 'POST',
-    crossDomain: true,
-    data: {
-        id: Cookies.get('userId')
-    },
-    timeout: 5000,
-    success: function(response) {
-        response = JSON.parse(response);
-        if (response.success) {
-            let data = response.data
-            user = data;
-            initPage();
-        }
-    },
-    error: function(xhr, textStatus) {
-        console.log(textStatus);
-    }
-});
+const user = {
+    name: "比利海灵顿",
+    score: 233,
+    id: 1
+}
 
 let initPage = (function() {
     // 渲染侧边栏动画
@@ -81,26 +62,18 @@ let initPage = (function() {
     });
 
     //=============填充数据================
-    return function() {
-        let $userName = $('#userName'),
-            $score = $('#userScore');
+    let $userName = $('#userName'),
+        $score = $('#userScore');
 
-        $userName.text(user.user_name);
-        $score.text(user.integration);
-    }
+    $userName.text(user.name);
+    $score.text(user.score);
+
 })();
 
 let initMap = (function() {
-    const powerHandler = {
-        '1': '守序善良',
-        '2': '绝对中立',
-        '3': '混乱邪恶'
-    }
-
-    let Marker = function(marker, id, power) {
+    let Marker = function(marker, id) {
         this.marker = marker;
         this.id = id;
-        this.power = power;
         this.marker.self = this;
     }
 
@@ -109,41 +82,16 @@ let initMap = (function() {
 
         this.marker.on('click', function(e) {
             selectedMark = self;
-
-            renderPanel();
-
             toggleOverlay[overlayState](e);
         });
     }
 
     let dataList = [{
         id: 1,
-        pos: [118.718634, 32.204161],
-        power: 1
+        pos: [118.718555, 32.204261]
     }, {
         id: 2,
-        pos: [118.717094, 32.204824],
-        power: 2
-    }, {
-        id: 3,
-        pos: [118.718569, 32.204615],
-        power: 3
-    }, {
-        id: 4,
-        pos: [118.713564, 32.202818],
-        power: 1
-    }, {
-        id: 5,
-        pos: [118.716408, 32.202732],
-        power: 2
-    }, {
-        id: 6,
-        pos: [118.718033, 32.203426],
-        power: 3
-    }, {
-        id: 7,
-        pos: [118.716375, 32.205469],
-        power: 2
+        pos: [118.71701, 32.20477]
     }];
 
     let markerList = [];
@@ -158,28 +106,13 @@ let initMap = (function() {
 
     for (let i = 0; i < dataList.length; i++) {
         let markerPos = dataList[i].pos;
-        let power = dataList[i].power;
-
-        let markIconHandler = {
-            '1': function() {
-                return 'img/marker1.svg'
-            },
-            '2': function() {
-                return 'img/marker2.svg'
-            },
-            '3': function() {
-                return 'img/marker3.svg'
-            }
-        };
 
         let mapMarker = new AMap.Marker({
-            icon: markIconHandler[power](),
             position: markerPos,
-            offset: new AMap.Pixel(-11, -26),
             map: map
         });
 
-        let marker = new Marker(mapMarker, dataList[i].id, power);
+        let marker = new Marker(mapMarker, dataList[i].id);
         marker.init();
 
         markerList.push(marker);
@@ -234,25 +167,6 @@ let initMap = (function() {
         }
     });
 
-    //===============浮层文字====================
-    let renderPanel = function() {
-        let markPowerText = powerHandler[selectedMark.power],
-            userPowerText = user.power_in;
-
-        if (markPowerText !== userPowerText) {
-            $('#panelText').text(`削弱${markPowerText}势力的占领`);
-
-            $('#confirm').text(`${userPowerText}!`);
-
-            $('#s3').text(`成功削弱${markPowerText}的势力！`);
-        } else {
-            $('#panelText').text(`巩固${markPowerText}势力的占领`);
-
-            $('#confirm').text(`${userPowerText}!`);
-
-            $('#s3').text(`成功巩固${markPowerText}的势力！`);
-        }
-    };
     //================确认占点==================
     let swicthOverlayPanel = (function() {
         let $s1 = $('#s1'),
@@ -277,12 +191,13 @@ let initMap = (function() {
             },
         }
     })();
-
+    
     let $confirm = $('#confirm');
 
     $confirm.click(function() {
         swicthOverlayPanel['s2']();
-
+        console.log(user);
+        console.log(selectedMark);
         setTimeout(function() {
             swicthOverlayPanel['s3']();
             setTimeout(function() {
